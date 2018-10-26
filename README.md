@@ -41,6 +41,8 @@ Example:
 
 This renew all certificates under /etc/letsencrypt. You can specify arguments to createcert.sh. They will be simply passed to certbot command. Since '--staging' is specified in this case, certbot will create certificate for staging. The '--renew-by-default' force certbot to renew certificate.
 
+When certbot renewed the certificate, it creates zero length flag file /etc/letsencrypt/certcreated. So you can check this file afterward to check if you need to update existing certificates.
+
 ## Logging
 
 If you encounter any problems, try take a log by specifying /tmp/sl-certdns:/var/log/sl-certdns. Log will be stored in /tmp/sl-certdns in this case.
