@@ -33,3 +33,4 @@ Example:
 This create SSL certificate for site 'www.yourdmain.com'. Your SSL certificate will be stored in /etc/letsencrypt. You can specify arguments to createcert.sh. They will be simply passed to certbot command. Since '--staging' is specified in this case, certbot will create certificate for staging.
 
 ## Renew certificate
+T.B.D.
