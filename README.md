@@ -33,4 +33,14 @@ Example:
 This create SSL certificate for site 'www.yourdmain.com'. Your SSL certificate will be stored in /etc/letsencrypt. You can specify arguments to createcert.sh. They will be simply passed to certbot command. Since '--staging' is specified in this case, certbot will create certificate for staging.
 
 ## Renew certificate
-T.B.D.
+
+Invoke renewcert.sh
+
+Example:  
+    $ docker run -v /tmp/letsencrypt:/etc/letsencrypt -e SL_USER='YOUR SOFTLAYER USER' -e SL_API_KEY='YOUR SOFTLAYER API KEY' -e EMAIL='YOUR MAIL ADDRESS' --rm -it ruimo/editdns renewcert.sh --staging --renew-by-default
+
+This renew all certificates under /etc/letsencrypt. You can specify arguments to createcert.sh. They will be simply passed to certbot command. Since '--staging' is specified in this case, certbot will create certificate for staging. The '--renew-by-default' force certbot to renew certificate.
+
+## Logging
+
+If you encounter any problems, try take a log by specifying /tmp/sl-certdns:/var/log/sl-certdns. Log will be stored in /tmp/sl-certdns in this case.
