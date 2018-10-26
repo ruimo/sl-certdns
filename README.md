@@ -12,7 +12,7 @@ Install Docker.
 | SL_API_KEY | API key of SoftLayer (*1) |
 | EMAIL | Admin email for Lets Encrypt (-m parameter for certbot) |
 | HOST_NAME | Host name part for your certificate |
-| DOMAIN | Domain name par for your certificate |
+| DOMAIN | Domain name part for your certificate |
 
 (*1) You can obtain user/api key in the following way:
 1. Go to infrastructure menu in IBM Cloud.
