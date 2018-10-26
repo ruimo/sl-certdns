@@ -1,18 +1,38 @@
 #!/bin/sh
-python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN $HOST_NAME $CERTBOT_VALIDATION
+mkdir -p /var/log/sl-certdns
+echo Starting editdns.sh >> /var/log/sl-certdns/sl-certdns.log
+echo Environment variable: >> /var/log/sl-certdns/sl-certdns.log
+printenv >> /var/log/sl-certdns/sl-certdns.log
+if [ -n $CERTBOT_DOMAIN ]; then
+  HOST_NAME=$(echo $CERTBOT_DOMAIN | tr '.' '\n' | head -n 1)
+  DOMAIN=$(echo $CERTBOT_DOMAIN | cut -d '.' -f 2-)
+fi
+
+echo Executing python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN $HOST_NAME $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
+python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN $HOST_NAME $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
+
+echo CREATED TOKEN: $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
 
 # Wait for TXT record is reflected.
 count=0
 while :
 do
     TOKEN=$(nslookup -q=txt _acme-challenge.ssltest.functionalcapture.com | grep "_acme-challenge" | sed -r 's/.*text = \"(.*)\"/\1/')
+    echo TOKEN ON DNS: $TOKEN >> /var/log/sl-certdns/sl-certdns.log
+
     test $TOKEN = $CERTBOT_VALIDATION
     if [ $? -eq 0 ]; then
+        echo Token matched. >> /var/log/sl-certdns/sl-certdns.log
+        echo Now wait 1 minute for sure since Lets encrypt side may still get old token... >> /var/log/sl-certdns/sl-certdns.log
+        sleep 60
         break
+    else
+        echo Token does not match. >> /var/log/sl-certdns/sl-certdns.log
     fi
 
     count=$(expr $count + 1)
     if [ $count -gt 720 ]; then # timeout in 120min
+        echo Token does not match for 120 minutes. Timeout. >> /var/log/sl-certdns/sl-certdns.log
         exit 1
     fi
 
