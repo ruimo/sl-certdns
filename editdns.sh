@@ -13,9 +13,9 @@ if [ "$HOST_NAME" != '*' ]; then
 fi
 
 echo Executing python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN "$HOST_NAME" $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
-python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN "$HOST_NAME" $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
+python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN "$HOST_NAME" "$CERTBOT_VALIDATION" >> /var/log/sl-certdns/sl-certdns.log
 
-echo CREATED TOKEN: $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
+echo CREATED TOKEN: "$CERTBOT_VALIDATION" >> /var/log/sl-certdns/sl-certdns.log
 
 # Wait for TXT record is reflected.
 count=0
@@ -25,7 +25,7 @@ do
     TOKEN=$(nslookup -q=txt _acme-challenge.$DOMAIN | grep "_acme-challenge" | sed -r 's/.*text = \"(.*)\"/\1/')
     echo TOKEN ON DNS: "$TOKEN" >> /var/log/sl-certdns/sl-certdns.log
 
-    test "$TOKEN" = $CERTBOT_VALIDATION
+    test "$TOKEN" = "$CERTBOT_VALIDATION"
     if [ $? -eq 0 ]; then
         echo Token matched. >> /var/log/sl-certdns/sl-certdns.log
         touch /etc/letsencrypt/certcreated
