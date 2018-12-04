@@ -45,7 +45,7 @@ This create SSL certificate for site '*.yourdomain.com'. Your SSL certificate wi
 
 Invoke renewcert.sh
 
-Example:  
+Example:
     $ docker run -v /tmp/letsencrypt:/etc/letsencrypt -e SL_USER='YOUR SOFTLAYER USER' -e SL_API_KEY='YOUR SOFTLAYER API KEY' -e EMAIL='YOUR MAIL ADDRESS' --rm ruimo/sl-certdns renewcert.sh --staging --renew-by-default
 
 This renews all certificates under /etc/letsencrypt. You can specify arguments to renewcert.sh. They will be simply passed to certbot command. Since '--staging' is specified in this case, certbot will create certificate for staging. The '--renew-by-default' force certbot to renew certificate always.
