@@ -39,7 +39,7 @@ You can create wildcard certification. Specify '*' for hostname and argument --s
 
 Example:
 
-    $ docker run -it -v /tmp/letsencrypt:/etc/letsencrypt -e SL_USER='YOUR SOFTLAYER USER' -e SL_API_KEY='YOUR SOFTLAYER API KEY' -e EMAIL='YOUR MAIL ADDRESS' -e HOST_NAME='*' -e DOMAIN='yourdomain.com' --rm ruimo/sl-certdns createcert.sh --server https://acme-v02.api.letsencrypt.org/directory --staging
+    $ docker run -v /tmp/letsencrypt:/etc/letsencrypt -e SL_USER='YOUR SOFTLAYER USER' -e SL_API_KEY='YOUR SOFTLAYER API KEY' -e EMAIL='YOUR MAIL ADDRESS' -e HOST_NAME='*' -e DOMAIN='yourdomain.com' --rm ruimo/sl-certdns createcert.sh --server https://acme-v02.api.letsencrypt.org/directory --staging
 
 This create SSL certificate for site '*.yourdomain.com'. Your SSL certificate will be stored in /etc/letsencrypt. As same as before, '--staging' is specified to let certbot create certificate for staging.
 
