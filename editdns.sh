@@ -12,8 +12,8 @@ if [ "$HOST_NAME" != '*' ]; then
     fi
 fi
 
-echo Executing python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN "$HOST_NAME" $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
-python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN "$HOST_NAME" "$CERTBOT_VALIDATION" >> /var/log/sl-certdns/sl-certdns.log
+echo Executing python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN "$HOST_NAME" -- $CERTBOT_VALIDATION >> /var/log/sl-certdns/sl-certdns.log
+python $(dirname $0)/editdns.py $SL_USER $SL_API_KEY $DOMAIN "$HOST_NAME" -- "$CERTBOT_VALIDATION" >> /var/log/sl-certdns/sl-certdns.log
 
 echo CREATED TOKEN: "$CERTBOT_VALIDATION" >> /var/log/sl-certdns/sl-certdns.log
 
