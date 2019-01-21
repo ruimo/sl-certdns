@@ -1,4 +1,6 @@
 #!/bin/sh
+certbot --version
+
 mkdir -p /var/log/sl-certdns
 echo Starting editdns.sh >> /var/log/sl-certdns/sl-certdns.log
 echo Environment variable: >> /var/log/sl-certdns/sl-certdns.log
