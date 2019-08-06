@@ -23,7 +23,7 @@ Install Docker.
 1. Use 'API Username' for SL_USER
 1. Use 'Authentication Key' for SL_API_KEY
 
-## Creating certification
+## Creating certificate
 
 Invoke createcert.sh
 
@@ -31,9 +31,9 @@ Example:
 
     $ docker run -v /etc/letsencrypt:/etc/letsencrypt -e SL_USER='YOUR SOFTLAYER USER' -e SL_API_KEY='YOUR SOFTLAYER API KEY' -e EMAIL='YOUR MAIL ADDRESS' -e HOST_NAME='www' -e DOMAIN='yourdomain.com' --rm ruimo/sl-certdns createcert.sh --staging
 
-This create SSL certificate for site 'www.yourdmain.com'. Your SSL certificate will be stored in /etc/letsencrypt. You can specify arguments to createcert.sh. They will be simply passed to certbot command. Since '--staging' is specified in this case, certbot will create certificate for staging.
+This creates SSL certificate for site 'www.yourdmain.com'. Your SSL certificate will be stored in /etc/letsencrypt. You can specify arguments to createcert.sh. They will be simply passed to certbot command. Since '--staging' is specified in this case, certbot will create certificate for staging.
 
-## Wildcard certification
+## Wildcard certificate
 
 You can create wildcard certification. Specify '*' for hostname and argument --server https://acme-v02.api.letsencrypt.org/directory.
 
