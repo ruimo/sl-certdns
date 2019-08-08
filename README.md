@@ -15,13 +15,14 @@ Install Docker.
 | DOMAIN | Domain name part for your certificate |
 
 (*1) You can obtain user/api key in the following way:
-1. Go to infrastructure menu in IBM Cloud.
-1. Navigate Account => Users => User List
-1. Click on 'Generate' at API KEY column (If you see 'Show', you already have generated your API key)
-1. Once generated, click on your email address column
-1. Navigate to "API Access Information".
-1. Use 'API Username' for SL_USER
-1. Use 'Authentication Key' for SL_API_KEY
+1. Go to IBM Cloud web site.
+1. Navigate Manage => Access(IAM)
+1. Click on Users located left side.
+1. Select 'My classic infrastructure users' for your view.
+1. Click on your account.
+1. Click on 'Create an IBM Cloud API key' to obtain API key (If you have created it before, just click 'Detail' from the right most menu).
+1. Use 'Email' for SL_USER
+1. Use the API key created above for SL_API_KEY
 
 ## Creating certificate
 
