@@ -23,7 +23,7 @@ echo CREATED TOKEN: "$CERTBOT_VALIDATION" >> /var/log/sl-certdns/sl-certdns.log
 count=0
 while :
 do
-    echo "executing: nslookup -q=txt _acme-challenge.$DOMAIN | grep '_acme-challenge' | sed -r 's/.*text = \"(.*)\"/\1/'" >> /var/log/sl-certdns/sl-certdns.log
+    echo "executing: nslookup -q=txt _acme-challenge.$DOMAIN 8.8.8.8 | grep '_acme-challenge' | sed -r 's/.*text = \"(.*)\"/\1/'" >> /var/log/sl-certdns/sl-certdns.log
     TOKEN=$(nslookup -q=txt _acme-challenge.$DOMAIN | grep "_acme-challenge" | sed -r 's/.*text = \"(.*)\"/\1/')
     echo TOKEN ON DNS: "$TOKEN" >> /var/log/sl-certdns/sl-certdns.log
 
