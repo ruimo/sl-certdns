@@ -18,10 +18,11 @@ Install Docker.
 1. Go to IBM Cloud web site.
 1. Navigate Manage => Access(IAM)
 1. Click on Users located left side.
-1. Select 'My classic infrastructure users' for your view.
-1. Click on your account.
+1. Click on 'Details' link located at top right.
+1. Pick 'SoftLayer username' for your SL_USER.
+1. Click 'API keys' in the left menu.
+1. Select 'Classic Infrastructure API keys' from 'View' drop down.
 1. Click on 'Create an IBM Cloud API key' to obtain API key (If you have created it before, just click 'Detail' from the right most menu).
-1. Use 'API User Name' for SL_USER
 1. Use the API key created above for SL_API_KEY
 
 ## Creating certificate
