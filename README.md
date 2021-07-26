@@ -20,7 +20,7 @@ Install Docker.
 1. Click on Users located left side.
 2. Click on the user you want to use.
 3. Click on 'Details' link located at top right.
-4. Pick 'SoftLayer username' for your SL_USER.
+4. Pick 'SoftLayer username' for your SL_USER. Caution! not 'User ID'.
 5. Click 'API keys' in the left menu.
 6. Select 'Classic Infrastructure API keys' from 'View' drop down.
 7. Click on 'Create an IBM Cloud API key' to obtain API key (If you have created it before, just click 'Detail' from the right most menu).
