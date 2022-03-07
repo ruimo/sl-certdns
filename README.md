@@ -2,7 +2,7 @@
 Create or renew SSL certificate with Lets Encrypt in IBM Cloud (SoftLayer) environment. Since it uses DNS-01 authentication, you do not need to execute this tool on your web server.
 
 Caution:
-Docker image path is changed. Use ghcr.io/ruimo/sl-certdns for the latest version.
+**Docker image path is changed. Use ghcr.io/ruimo/sl-certdns for the latest version.**
 
 ## Prerequisite
 Install Docker.
